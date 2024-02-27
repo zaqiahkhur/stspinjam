@@ -1,6 +1,6 @@
 <?php
 require_once('database.php');
-$data=tampildata();
+$data=tampildata_user('user');
 $nomor=0;
 ?>
 

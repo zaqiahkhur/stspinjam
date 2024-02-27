@@ -1,28 +1,31 @@
 <?php
 $koneksi = mysqli_connect("localhost", "root", "", "peminjaman_barang") or die;
-function tampildata()
+
+function getalldata($tablename)
 {
-    global $koneksi;
-    $hasil = mysqli_query($koneksi, "SELECT barang.id,barang.kode_barang,barang.nama_barang,barang.kategori,barang.merk,barang.jumlah,user.username from peminjaman_barang INNER JOIN user ON barang.id_user=user.id_;");
-    $rows = [];
+  global $koneksi;
+  $hasil= mysqli_query($koneksi, "SELECT * FROM $tablename");
+   $rows = [];
     while ($row = mysqli_fetch_assoc($hasil)) 
     {
         $rows[] = $row;
     }
     return $rows;
-    
 }
-function tampildata_user($id_user)
-{
-    global $koneksi;
-    $hasil = mysqli_query($koneksi, "SELECT * FROM peminjaman_barang WHERE id_user= '$id_user';");
-    $rows = [];
+function tampildata_user($tablename){
+  global $koneksi;
+  $hasil=mysqli_query($koneksi,"SELECT * FROM $tablename");
+   $rows = [];
     while ($row = mysqli_fetch_assoc($hasil)) 
     {
         $rows[] = $row;
     }
     return $rows;
-    
+}
+function peminjaman($tablename,$id){
+  global $koneksi;
+  $hasil=mysqli_query($koneksi,"select from $tablename where id =$id");
+  return $hasil;
 }
 
 

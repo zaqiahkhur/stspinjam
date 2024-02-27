@@ -20,14 +20,15 @@ $data=editdata('barang', $_GET['id']);
   <?php include ("nav.php");?>
   
 <div class="container">
-  <h1>EDIT NOTES</h1> 
+  <h1>UPDATE BARANG</h1> 
   <?php while($barang=mysqli_fetch_array($data)): ?> 
   <form action="update.php" method="post">
   <div class="form-group">
     <input type="hidden" name="id" value="<?php echo "$barang[id]"; ?>">
-    <label for="barang">barang</label>
+    <label for="barang">Barang</label>
     <textarea class="form-control" id="textarea" rows="3" name="barang"><?php
-    echo"$barang[barang]"; ?></textarea>
+    echo"$barang[nama_barang]"; ?></textarea>
+    
   </div>
   <div>
     <input type="submit" value="update">

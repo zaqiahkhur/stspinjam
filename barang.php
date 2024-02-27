@@ -1,6 +1,6 @@
 <?php
 require_once('database.php');
-$data=tampildata();
+$data=getalldata('barang');
 $nomor=0;
 ?>
 
@@ -30,7 +30,7 @@ $nomor=0;
 <?php include("nav.php")?>
 
     <div class="container">
-  <center><h1>DAFTAR PEMINJAMAN</h1></center> 
+  <center><h1>DAFTAR BARANG</h1></center> 
    <table class="table">
   <thead>
     <tr>

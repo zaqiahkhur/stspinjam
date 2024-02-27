@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('database.php');
-$data=tampildata_user($_SESSION['id_user']);
+$data=peminjaman('peminjaman', $_GET['id']);;
 $nomor=0;
 ?>
 
@@ -30,7 +30,7 @@ $nomor=0;
 <?php include("nav.php")?>
 
    <div class="container">
-  <center><h1>DAFTAR CATATAN</h1></center> 
+  <center><h1>DAFTAR PEMINJAMAN</h1></center> 
    <table class="table">
   <thead>
     <tr>
