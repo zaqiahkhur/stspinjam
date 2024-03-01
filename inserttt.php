@@ -7,31 +7,38 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- 
-    <title>Hello, world!</title>
+
+    <title>Tambah Barang</title>
   </head>
   <body>
-  <?php
-    session_start();
-    if($_SESSION['status']!="login"){
-        header("location:log.php?msg=belum_login");
-    }
-    ?>
-  <?php include("nav.php");?>
-
-
- <div class="container">
-  <h1>Pinjam Barang</h1> 
-  <form action="proses_input.php" method="post">
+   <div class="container">
+  <h1>Add Barang</h1> 
+ <form action = "proses_input_barang.php" method ="post">
+ <div class="form-group">
+      <label for="kodebarang">Kode Barang</label>
+      <input type="text" class="form-control" name="kodebarang">
+    </div>
+    <div class="form-group">
+      <label for="namabarang">Nama Barang</label>
+      <input type='text' class='form-control' name='namabarang' >
+    </div>
   <div class="form-group">
-    <input type="hidden" name="id" value="">
-    <label for="barang">Barang</label>
-    <textarea class="form-control" id="textarea" rows="3" name="barang"></textarea>
+    <label for="kategori">kategori</label>
+    <input type="text" class="form-control" name="kategori" >
   </div>
-  <div>
-    <input type="submit" value="Save">
+  <div class="form-group">
+    <label for="merk">merk</label>
+    <input type="text" class="form-control" name="merk" >
   </div>
-  </form>
+
+    <div class="form-group">
+      <label for="jumlah">Jumlah</label>
+      <input type="number" class="form-control" name="jumlah">
+    </div>
+
+  <input type="submit" class="btn btn-primary">Save</input>
+</form>
+  
   </div>
 
     <!-- Optional JavaScript -->

@@ -13,7 +13,7 @@ if(isset($_POST['masuk'])){
           if($_SESSION['role']=="admin"){
             header("location:home.php");
           }else{
-            header("location:member.php");
+            header("location:home_user.php");
           }
     }else{
         header("location:log.php?msg=gagal");

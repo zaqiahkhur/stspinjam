@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('database.php');
-$data=peminjaman('peminjaman', $_GET['id']);;
+$data=getalldata('peminjaman');
 $nomor=0;
 ?>
 
@@ -17,7 +17,7 @@ $nomor=0;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>notes2</title>
+    <title></title>
 </head>
 
 <body> 
@@ -42,6 +42,7 @@ $nomor=0;
       <th scope="col">Jumlah</th>
       <th scope="col">Keperluan</th>
       <th scope="col">Status</th>
+     <th scope="col">Action</th>
 
     </tr>
   </thead>
@@ -50,14 +51,14 @@ $nomor=0;
         <?php $nomor++; ?>
     <tr>
       <th scope="row"><?php echo "$nomor"; ?></th>
-      <td><?php echo $item['tgl_pinjam']; ?></td>
+      <td><?php echo $item['tgl_peminjaman']; ?></td>
       <td><?php echo $item['tgl_kembali']; ?></td>
        <td><?php echo $item['no_identitas']; ?></td>
         <td><?php echo $item['kode_barang']; ?></td>
          <td><?php echo $item['jumlah']; ?></td>
           <td><?php echo $item['keperluan']; ?></td>
            <td><?php echo $item['status']; ?></td>
-      <td><?php echo "<a href='edit.php?id=$item[id]'>Edit</a> | <a href='javascript:hapusdata(".$item['id'].")'>Hapus Data</a>";?> </td>
+            <td><?php echo "<a href='edit.php?id=$item[id]'>Edit</a> | <a href='javascript:hapusdata(".$item['id'].")'>Hapus Data</a>";?> </td>
       
     </tr>
     <?php endforeach; ?>

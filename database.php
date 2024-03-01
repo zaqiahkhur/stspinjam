@@ -24,8 +24,12 @@ function tampildata_user($tablename){
 }
 function peminjaman($tablename,$id){
   global $koneksi;
-  $hasil=mysqli_query($koneksi,"select from $tablename where id =$id");
+  $hasil=mysqli_query($koneksi,"select * from $tablename where id =$id");
   return $hasil;
+}
+function getdata_peminjaman(){
+  global $koneksi;
+  $hasil=mysqli_query($koneksi,"SELECT peminjaman.id,peminjaman.tgl_peminjaman,peminjaman.tgl_kembali,peminjaman.no_identitas,user.nama,peminjaman.kode_barang,barang.nama_barang,peminjaman.jumlah,peminjaman.keperluan,peminjaman.status FROM peminjaman INNER JOIN user ON peminjaman.no_identitas= USER.no_identitas INNER JOIN barang ON peminjaman.kode_barang=barang.kode_barang;");
 }
 
 
@@ -39,7 +43,7 @@ function peminjaman($tablename,$id){
           function updatedata($table,$data,$id)
           {
             global $koneksi;
-            $sql = "UPDATE $table SET peminjaman_barang  = '$data' WHERE id = '$id'";
+            $sql = "UPDATE $table SET nama_barang  = '$data' WHERE id = '$id'";
             $hasil=mysqli_query($koneksi,$sql);
             return $hasil;
           } 

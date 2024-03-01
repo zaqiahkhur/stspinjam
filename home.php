@@ -26,7 +26,8 @@
         <div class="container">
           <center><h1 class="display-4 ">SELAMAT DATANG</h1>
         <p class="lead">peminjaman SMK BAKTI NUSANTARA 666</p>
-            <a href="insert.php"><button type="button" class="btn btn-secondary">pinjam</button></a> </center>
+            <a href="inserttt.php"><button type="button" class="btn btn-secondary">Add barang</button></a>
+             <a href="insert_peminjaman.php"><button type="button" class="btn btn-secondary">Add peminjaman</button></a> </center>
         </div>
       </div>
 

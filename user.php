@@ -30,7 +30,7 @@ $nomor=0;
       <th scope="col">Status</th>
       <th scope="col">Username</th>
       <th scope="col">Password</th>
-      <th scope="col">Note</th>
+      <th scope="col">Role</th>
 
     </tr>
   </thead>
@@ -44,7 +44,7 @@ $nomor=0;
       <td><?php echo $item['status']; ?></td>
       <td><?php echo $item['username']; ?></td>
       <td><?php echo $item['password']; ?></td>
-      <td><?php echo $item['note']; ?></td>
+      <td><?php echo $item['role']; ?></td>
       
     </tr>
     <?php endforeach; ?>
