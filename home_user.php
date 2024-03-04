@@ -27,7 +27,6 @@ session_start();
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <center><h1 class="display-4 ">Hallo Member</h1></center>
-            <center><a href="insert_peminjaman.php"><button type="button" class="btn btn-secondary">pinjam</button></a></center>
         </div>
       </div>
 

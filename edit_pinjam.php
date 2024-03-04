@@ -1,3 +1,7 @@
+<?php
+require_once('database.php');
+$data=editdata('peminjaman', $_GET['id']);
+?>
 
 
 <!doctype html>
@@ -9,28 +13,33 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- 
+
     <title>Hello, world!</title>
   </head>
   <body>
-  <?php
-    session_start();
-    if($_SESSION['status']!="login"){
-        header("location:log.php?msg=belum_login");
-    }
-    ?>
-<?php include ("nav.php");?>
+  <?php include ("nav.php");?>
+  
+<div class="container">
+  <h1>UPDATE PINJAM</h1> 
+  <?php while($status=mysqli_fetch_array($data)): ?> 
+  <form action="update_pinjam.php" method="post">
+  <div class="form-group">
+    <input type="hidden" name="id" value="<?php echo "$status[id]"; ?>">
+    <label for="status">Status</label>
+    <textarea class="form-control" id="textarea" rows="3" name="peminjaman"><?php
+    echo"$status[status]"; ?></textarea>
+    
+  </div>
+  <div>
+    <input type="submit" value="update">
+  </div>
+  </form>
+  <?php endwhile; ?>
+  </div>
 
 
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <center><h1 class="display-4 ">SELAMAT DATANG</h1>
-        <p class="lead">Admin peminjaman SMK BAKTI NUSANTARA 666</p>
-            <a href="inserttt.php"><button type="button" class="btn btn-secondary">Add barang</button></a>
-             <a href="insert_peminjaman.php"><button type="button" class="btn btn-secondary">Add peminjaman</button></a>
-                <a href="insert_user.php"><button type="button" class="btn btn-secondary">Add user</button></a> </center>
-        </div>
-      </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

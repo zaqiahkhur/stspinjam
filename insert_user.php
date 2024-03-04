@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,28 +7,43 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- 
-    <title>Hello, world!</title>
+
+    <title>Tambah Barang</title>
   </head>
   <body>
-  <?php
-    session_start();
-    if($_SESSION['status']!="login"){
-        header("location:log.php?msg=belum_login");
-    }
-    ?>
-<?php include ("nav.php");?>
+   <div class="container">
+  <h1>Add User</h1> 
+ <form action = "input_user.php" method ="post">
+ <div class="form-group">
+      <label for="noiden">No identitas</label>
+      <input type="text" class="form-control" name="noiden">
+    </div>
+    <div class="form-group">
+      <label for="namau">Nama User</label>
+      <input type='text' class='form-control' name='namau' >
+    </div>
+  <div class="form-group">
+    <label for="status">Status</label>
+    <input type="dropdown" class="form-control" name="status" >
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" name="username" >
+  </div>
 
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" name="password">
+    </div>
+        <div class="form-group">
+      <label for="role">Role</label>
+      <input type="text" class="form-control" name="role">
+    </div>
 
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <center><h1 class="display-4 ">SELAMAT DATANG</h1>
-        <p class="lead">Admin peminjaman SMK BAKTI NUSANTARA 666</p>
-            <a href="inserttt.php"><button type="button" class="btn btn-secondary">Add barang</button></a>
-             <a href="insert_peminjaman.php"><button type="button" class="btn btn-secondary">Add peminjaman</button></a>
-                <a href="insert_user.php"><button type="button" class="btn btn-secondary">Add user</button></a> </center>
-        </div>
-      </div>
+  <input type="submit" class="btn btn-primary">Save</input>
+</form>
+  
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

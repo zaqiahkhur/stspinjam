@@ -15,7 +15,7 @@ if(isset($_POST['masuk'])){
           }else{
             header("location:home_user.php");
           }
-    }else{
+    }else{  
         header("location:log.php?msg=gagal");
     }
 }
@@ -35,18 +35,37 @@ if(isset($_POST['masuk'])){
     <title>Hello, world!</title>
   </head>
   <body>
-  <form action="" method="post">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" name="username">
+   <div class="container pt-5">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="mb-0" align="center"><span class="text-primary">LOGIN</span></h1>
+          </div>
+          <div class="card-body">
+            <form action="" method="POST">
+              <div class="form-group">
+                <input type="text" class="form-control" name="username" id="exampleInputEmail1"
+                  aria-describedby="emailHelp" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+                  placeholder="Password">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+              </div>
+              <button type="submit" name="masuk" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="password" name="password">
-  </div>
-  <button type="submit" name="masuk" class="btn btn-primary">Login</button>
-</form>
-
+  
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

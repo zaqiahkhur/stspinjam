@@ -12,6 +12,18 @@ function getalldata($tablename)
     }
     return $rows;
 }
+function getpinjam($no_identitas)
+{
+    global $koneksi;
+  $hasil=mysqli_query($koneksi,"SELECT * FROM peminjaman WHERE no_identitas = '$no_identitas'");
+    $rows=[];
+        while($row = mysqli_fetch_assoc($hasil))
+        {
+            $rows[] = $row;
+        }
+        return $rows;
+}
+
 function tampildata_user($tablename){
   global $koneksi;
   $hasil=mysqli_query($koneksi,"SELECT * FROM $tablename");
@@ -22,9 +34,9 @@ function tampildata_user($tablename){
     }
     return $rows;
 }
-function peminjaman($tablename,$id){
+function peminjaman($table,$data,$id){
   global $koneksi;
-  $hasil=mysqli_query($koneksi,"select * from $tablename where id =$id");
+  $hasil=mysqli_query($koneksi,"UPDATE $table SET status = '$data' WHERE id = '$id'");
   return $hasil;
 }
 function getdata_peminjaman(){
@@ -67,6 +79,7 @@ function getdata_peminjaman(){
               $sql= mysqli_fetch_array($hasil);
                 $_SESSION ['id_user']=$sql['id_user'];
                 $_SESSION ['username']=$sql['username'];
+                $_SESSION['no_identitas']=$sql['no_identitas'];
                 $_SESSION ['role']=$sql['role'];
               return true;
             }else{

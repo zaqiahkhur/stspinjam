@@ -1,9 +1,8 @@
 <?php
 session_start();
 require_once('database.php');
-$data=getalldata('peminjaman');
+$data=getpinjam($_SESSION['no_identitas']);
 $nomor=0;
-
 ?>
 
 <!doctype html>
@@ -43,7 +42,6 @@ $nomor=0;
       <th scope="col">Jumlah</th>
       <th scope="col">Keperluan</th>
       <th scope="col">Status</th>
-     <th scope="col">Action</th>
 
     </tr>
   </thead>
@@ -59,7 +57,6 @@ $nomor=0;
          <td><?php echo $item['jumlah']; ?></td>
           <td><?php echo $item['keperluan']; ?></td>
            <td><?php echo $item['status']; ?></td>
-            <td><?php echo "<a href='edit_pinjam.php?id=$item[id]'>Edit</a> | <a href='javascript:hapusdata(".$item['id'].")'>Hapus Data</a>";?> </td>
       
     </tr>
     <?php endforeach; ?>
