@@ -34,15 +34,17 @@
     <label for="jumlah">Jumlah</label>
     <input type="number" class="form-control" name="jumlah" >
   </div>
-
     <div class="form-group">
       <label for="keperluan">Keperluan</label>
       <input type="text" class="form-control" name="keperluan">
     </div>
-     <div class="form-group">
-      <label for="status">Status</label>
-      <input type="text" class="form-control" name="status">
-    </div>
+    <div class="form-group">
+    <label for="exampleFormControlSelect1"> Status</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Kembali</option>
+      <option>Belum Kembali</option>
+    </select>
+  </div>
      <div class="form-group">
       <label for="idlogin">id login</label>
       <input type="text" class="form-control" name="idlogin">

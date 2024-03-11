@@ -1,4 +1,11 @@
-
+<?php
+require_once('database.php');
+$barang=jumlah();
+$peminjam=jumlahpinjam();
+$user=jumlahUser();
+$pinjam=barangTerbanyakdiPinjam();
+// $GetCoba1=cobaGet1();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -17,7 +24,8 @@
     session_start();
     if($_SESSION['status']!="login"){
         header("location:log.php?msg=belum_login");
-    }
+      
+      }
     ?>
 <?php include ("nav.php");?>
 
@@ -26,12 +34,57 @@
         <div class="container">
           <center><h1 class="display-4 ">SELAMAT DATANG</h1>
         <p class="lead">Admin peminjaman SMK BAKTI NUSANTARA 666</p>
-            <a href="inserttt.php"><button type="button" class="btn btn-secondary">Add barang</button></a>
-             <a href="insert_peminjaman.php"><button type="button" class="btn btn-secondary">Add peminjaman</button></a>
-                <a href="insert_user.php"><button type="button" class="btn btn-secondary">Add user</button></a> </center>
         </div>
       </div>
 
+      <div class="container mt=-5">
+
+        <div class="row text-center">
+          <div class="col-md-4">
+          <div class="card" style="width: 18rem;margin-bottom:15px">
+            <div class="card-body">
+
+            <h5 class="card-title">Data Barang</h5>
+            <h4><?=$barang['jumlah'] ?></h4>
+            <p class="card-text">Jumlah barang saat ini</p>
+            <a href="barang.php" class="card-link">Lihat data barang</a>
+            </div>
+         </div>
+        </div>
+         <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">Data User</h5>
+             <h4><?=$user['jumlah'] ?></h4>
+            <p class="card-text">Jumlah User saat ini</p>
+            <a href="user.php" class="card-link">Lihat data User</a>
+            </div>
+         </div>
+        </div>
+         <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">Data Peminjaman</h5>
+             <h4><?=$peminjam['jumlah'] ?></h4>
+            <p class="card-text">Jumlah peminjaman saat ini</p>
+            <a href="peminjaman.php" class="card-link">Lihat data peminjaman</a>
+            </div>
+         </div>
+        </div>
+         <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">Banyak Barang di Pinjam </h5>
+             <h4><?=$pinjam['nama']  ?></h4>
+             <p>Jumlah paling banyak di pinjam saat ini</p>
+            <a href="peminjaman.php" class="card-link">Lihat data peminjaman</a>
+            </div>
+         </div>
+        </div>
+      </div>
+
+
+     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('database.php');
 $data=editdata('peminjaman', $_GET['id']);
 ?>
@@ -21,19 +22,45 @@ $data=editdata('peminjaman', $_GET['id']);
   
 <div class="container">
   <h1>UPDATE PINJAM</h1> 
-  <?php while($status=mysqli_fetch_array($data)): ?> 
+  <?php while($peminjaman=mysqli_fetch_array($data)): ?> 
   <form action="update_pinjam.php" method="post">
-  <div class="form-group">
-    <input type="hidden" name="id" value="<?php echo "$status[id]"; ?>">
-    <label for="status">Status</label>
-    <textarea class="form-control" id="textarea" rows="3" name="peminjaman"><?php
-    echo"$status[status]"; ?></textarea>
-    
-  </div>
-  <div>
-    <input type="submit" value="update">
-  </div>
-  </form>
+            <input type="hidden" name="id" value="<?php echo $peminjaman['id'] ;?>">
+               <div class="form-group">
+                    <label>Tanggal peminjaman</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['tgl_peminjaman'] ; ?>" >
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Kembali</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['tgl_kembali'] ; ?>" >
+                </div>
+                <div class="form-group">
+                    <label>No Identitas</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['no_identitas'] ; ?>" >
+                </div>
+                <div class="form-group">
+                    <label>Kode Barang</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['kode_barang'] ; ?>" aria-describedby="basic-addon1">
+                </div>
+                <div class="form-group">
+                    <label>Jumlah</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['jumlah'] ; ?>" aria-describedby="basic-addon1">
+                </div>
+                 <div class="form-group">
+                    <label>Keperluan</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['keperluan'] ; ?>" aria-describedby="basic-addon1">
+                </div>
+                 <div class="form-group">
+                    <label>Status</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['status'] ; ?>" aria-describedby="basic-addon1">
+                </div>
+                 <div class="form-group">
+                    <label>Id login</label>
+                    <input type="text" name="peminjaman" class="form-control" value="<?php  echo $peminjaman['id_login'] ; ?>" aria-describedby="basic-addon1">
+                </div>
+                <div>
+                    <input type="submit" value="update">
+                </div>
+            </form>
   <?php endwhile; ?>
   </div>
 

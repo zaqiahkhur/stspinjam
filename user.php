@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('database.php');
 $data=tampildata_user('user');
 $nomor=0;
@@ -21,6 +22,55 @@ $nomor=0;
   <?php include("nav.php");?>
 <div class="container">
   <center><h1>DAFTAR USER</h1></center> 
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+ Add User
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action = "input_user.php" method ="post">
+ <div class="form-group">
+      <label for="noiden">No identitas</label>
+      <input type="text" class="form-control" name="noiden">
+    </div>
+    <div class="form-group">
+      <label for="namau">Nama User</label>
+      <input type='text' class='form-control' name='namau' >
+    </div>
+  <div class="form-group">
+    <label for="status">Status</label>
+    <input type="dropdown" class="form-control" name="status" >
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" name="username" >
+  </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" name="password">
+    </div>
+        <div class="form-group">
+      <label for="role">Role</label>
+      <input type="text" class="form-control" name="role">
+    </div>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <input type="submit" class="btn btn-primary">Save</input>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
    <table class="table">
   <thead>
     <tr>
@@ -31,6 +81,7 @@ $nomor=0;
       <th scope="col">Username</th>
       <th scope="col">Password</th>
       <th scope="col">Role</th>
+      <th scope="col">Action</th>
 
     </tr>
   </thead>
@@ -45,12 +96,20 @@ $nomor=0;
       <td><?php echo $item['username']; ?></td>
       <td><?php echo $item['password']; ?></td>
       <td><?php echo $item['role']; ?></td>
+       <td><?php echo " <a href='javascript:hapusdata(".$item['id'].")'>Hapus Data</a>";?> </td>
       
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
    </div>
+    <script language="JavaScript" type="text/javascript">
+    function hapusdata(id){
+        if (confirm("apakah anda yakin akan menghapus data ini?")){
+            window.location.href = 'delete_user.php?id=' +id;
+        }
+    }
+   </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -36,7 +36,7 @@
       <input type="number" class="form-control" name="jumlah">
     </div>
 
-  <input type="submit" class="btn btn-primary">Save</input>
+  
 </form>
   
   </div>

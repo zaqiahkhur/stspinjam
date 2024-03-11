@@ -7,16 +7,20 @@ if(isset($_POST['masuk'])){
     if(cek_login($_POST['username'],$_POST['password'])){
         $_SESSION['username'] =$username;
         $_SESSION['status'] ="login";
+        $_SESSION['id'];
         if(cek_login($_POST['username'], $_POST['password'])){
           $_SESSION['username'] =$username;
           $_SESSION['status'] ="login";
+          $_SESSION['id'];
+          
           if($_SESSION['role']=="admin"){
             header("location:home.php");
           }else{
             header("location:home_user.php");
           }
     }else{  
-        header("location:log.php?msg=gagal");
+      $_SESSION['eror'] ='<b>username</b> atau <b>password</b> yang anda masukan salah';  
+        header("location:log.php");
     }
 }
 }
@@ -35,6 +39,15 @@ if(isset($_POST['masuk'])){
     <title>Hello, world!</title>
   </head>
   <body>
+
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <center><b>username</b> atau <b>password</b> yang anda masukan salah</center>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
    <div class="container pt-5">
     <div class="row">
       <div class="col-md-4">

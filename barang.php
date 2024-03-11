@@ -31,6 +31,56 @@ $nomor=0;
 
     <div class="container">
   <center><h1>DAFTAR BARANG</h1></center> 
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+ Add data  
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Barang</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form action = "proses_input_barang.php" method ="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+       <label for="kodebarang">Kode Barang</label>
+      <input type="text" class="form-control" name="kodebarang">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="namabarang">Nama Barang</label>
+      <input type='text' class='form-control' name='namabarang' >
+    </div>
+  </div>
+  <div class="form-group">
+     <label for="kategori">kategori</label>
+    <input type="text" class="form-control" name="kategori" >
+  </div>
+  <div class="form-group">
+      <label for="merk">merk</label>
+    <input type="text" class="form-control" name="merk" >
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label for="jumlah">Jumlah</label>
+      <input type="number" class="form-control" name="jumlah">
+    </div>
+  </div>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+    <input type="submit" class="btn btn-primary"></input>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+   <!-- <a href="inserttt.php"><button class="btn btn-primary btn-sm float -right ">Tampah Data </button></a> -->
+   <br>
    <table class="table">
   <thead>
     <tr>
@@ -54,7 +104,7 @@ $nomor=0;
       <td><?php echo $item['kategori']; ?></td>
       <td><?php echo $item['merk']; ?></td>
       <td><?php echo $item['jumlah']; ?></td>
-      <td><?php echo "<a href='edit.php?id=$item[id]'>Edit</a> | <a href='javascript:hapusdata(".$item['id'].")'>Hapus Data</a>";?> </td>
+      <td><?php echo "<a href='edit.php?id=$item[id]'>Edit</a> | <a href='javascript:hapusdata(".$item['id'].")'>Delete</a> ";?> </td>
       
     </tr>
     <?php endforeach; ?>

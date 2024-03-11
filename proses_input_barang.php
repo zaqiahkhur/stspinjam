@@ -11,8 +11,8 @@ $xjumlah=$_POST['jumlah'];
 // var_dump($koneksi);
 // $sql="INSERT INTO barang VALUES (null,$kodebarang','$barang','$kategori','$merk','$jumlah')";
 $sql="INSERT INTO `barang`(`id`, `kode_barang`, `nama_barang`, `kategori`, `merk`, `jumlah`) VALUES (NULL,'$xkodebarang','$xbarang','$xkategori','$xmerk','$xjumlah')";
-$simpan=mysqli_query($koneksi,$sql);
-if($simpan){
+$save=mysqli_query($koneksi,$sql);
+if($save){
     header("location:barang.php");
 }
 ?>
